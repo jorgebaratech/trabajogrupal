@@ -66,9 +66,25 @@ public class AlumnoController {
     public int getHorasFCT(@PathVariable int id) {
         String sql = "SELECT SUM(totalHoras) AS horasFCT FROM tarea WHERE tipo = 'FCT' AND id_alumno = ?";
         Integer horasFCT = jdbcTemplate.queryForObject(sql, new Object[]{id}, Integer.class);
-        return horas;
+        return horasFCT;
                 }
-    
+    @PostMapping("")
+@ResponseBody
+public Alumno createAlumno(@RequestBody Alumno alumno) {
+    String sql = "INSERT INTO alumno (nombre, apellidos, contraseña, dni, fechaN, correo, telefono, empresa, profesor, observaciones) " +
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    jdbcTemplate.update(sql, alumno.getNombre(), alumno.getApellidos(), alumno.getContraseña(), alumno.getDni(),
+            alumno.getFechaN(), alumno.getCorreo(), alumno.getTelefono(), alumno.getEmpresa(), alumno.getProfesor(),
+            alumno.getObservaciones());
+    return alumno;
+}
+    @DeleteMapping("/{id}")
+@ResponseBody
+public String deleteAlumno(@PathVariable int id) {
+    String sql = "DELETE FROM alumno WHERE id_alumno = ?";
+    jdbcTemplate.update(sql, id);
+    return "Alumno eliminado correctamente";
+}
     
     
 }
