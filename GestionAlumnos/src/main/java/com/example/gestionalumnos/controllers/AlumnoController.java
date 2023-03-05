@@ -31,8 +31,8 @@ public class AlumnoController implements Initializable {
             .connectTimeout(Duration.ofSeconds(5))
             .build();
     @FXML
-    private void switchToPrimary() throws IOException {
-        App.setRoot("primary");
+    private void back() throws IOException {
+        App.setRoot("login-view");
     }
     @FXML
     private Button btnLogin;

@@ -111,7 +111,7 @@
         </TabPane>
     </center>
     <bottom>
-        <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#switchToPrimary" prefHeight="25.0" prefWidth="112.0" text="Atras" BorderPane.alignment="CENTER">
+        <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="112.0" text="Atras" BorderPane.alignment="CENTER">
             <BorderPane.margin>
                 <Insets bottom="20.0" />
             </BorderPane.margin></Button>
